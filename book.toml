@@ -1,0 +1,6 @@
+[book]
+authors = ["Muhammad Faizud Daroin"]
+language = "en"
+multilingual = false
+src = "src"
+title = "C# Book"
