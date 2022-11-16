@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>C# Book</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="ch01-00-memulai.html"><strong aria-hidden="true">1.</strong> Memulai</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-instalasi.html"><strong aria-hidden="true">1.1.</strong> Instalasi</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello world!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-tebak-kata-tutorial.html"><strong aria-hidden="true">2.</strong> Membuat Permainan Tebak Kata</a></li><li class="chapter-item expanded "><a href="ch03-00-konsep-pemrograman-umum.html"><strong aria-hidden="true">3.</strong> Konsep Pemrograman Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variabel.html"><strong aria-hidden="true">3.1.</strong> Variabel</a></li><li class="chapter-item expanded "><a href="ch03-02-tipe-data.html"><strong aria-hidden="true">3.2.</strong> Tipe data</a></li><li class="chapter-item expanded "><a href="ch03-03-function.html"><strong aria-hidden="true">3.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="ch03-04-comment.html"><strong aria-hidden="true">3.4.</strong> Comment</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Control Flow</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">C# Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="memulai"><a class="header" href="#memulai">Memulai</a></h1>
+<p>Untuk memulai menggunakan C# (baca: C Sharp), yang perlu kita
+kita siapkan adalah:</p>
+<ul>
+<li><a href="https://dotnet.microsoft.com/en-us/download">dotnet SDK</a></li>
+<li>Editor kode, seperti:
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> 
+(Direkomendasikan untuk perangkat low-end)</li>
+<li><a href="https://visualstudio.microsoft.com/">Visual Studio</a></li>
+<li><a href="https://www.jetbrains.com/rider/">Rider</a></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="instalasi"><a class="header" href="#instalasi">Instalasi</a></h1>
+<h2 id="instalasi-net-core-sdk"><a class="header" href="#instalasi-net-core-sdk">Instalasi .NET Core SDK</a></h2>
+<ul>
+<li>Buka halaman unduh dotnet SDK di <a href="https://dotnet.microsoft.com/download">sini</a></li>
+<li>Setelah muncul tampilan seperti berikut, scroll ke bawah</li>
+</ul>
+<p><img src="img/vscodeinstall/install-sdk-1.png" alt="" /></p>
+<ul>
+<li>Pada bagian '.NET 5.0' (versi saat dokumen ini dibuat, jika ada versi 
+terbaru silakan pilih versi tersebut) tekan tombol 'Download .NET SDK x64'</li>
+</ul>
+<p><img src="img/vscodeinstall/install-sdk-2.png" alt="" /></p>
+<ul>
+<li>Saat muncul tampilan seperti berikut, tekan 'Install'</li>
+</ul>
+<p><img src="img/vscodeinstall/install-sdk-3.png" alt="" /></p>
+<ul>
+<li>Setelah proses instalasi selesai, akan keluar tampilan berikut, tekan close</li>
+</ul>
+<p><img src="img/vscodeinstall/install-sdk-4.png" alt="" /></p>
+<h2 id="memastikan-net-core-sdk-telah-terinstall"><a class="header" href="#memastikan-net-core-sdk-telah-terinstall">Memastikan .NET Core SDK Telah Terinstall</a></h2>
+<h3 id="cek-path"><a class="header" href="#cek-path">Cek PATH</a></h3>
+<ul>
+<li>Tekan pada keybord, tombol Windows+R (tombol windows adalah tombol yang mempunyai logo 'jendela', biasanya disamping tombol alt, tekan tombol windows, lalu sambil menekannya, tekan tombol R)</li>
+<li>Akan muncul tampilan seperti ini:</li>
+</ul>
+<p><img src="img/vscodeinstall/run-properties.png" alt="" /></p>
+<ul>
+<li>Ketikkan 'SystemPropertiesAdvanced' lalu tekan Enter</li>
+<li>Saat muncul tampilan berikut, tekan tombol 'Environment Variables'</li>
+</ul>
+<p><img src="img/vscodeinstall/system-prop.png" alt="" /></p>
+<ul>
+<li>Pada tampilan berikutnya, cari 'Path' di bagian 'System Variables' lalu tekan tombol edit</li>
+</ul>
+<p><img src="img/vscodeinstall/find-path.png" alt="" /></p>
+<ul>
+<li>Setelah itu cari lagi nilai <code>C:\Program Files\dotnet</code></li>
+</ul>
+<p><img src="img/vscodeinstall/dotnet-path.png" alt="" /></p>
+<ul>
+<li>Jika <strong>tidak ada</strong>, buat nilai baru dan masukkan <code>C:\Program Files\dotnet</code></li>
+</ul>
+<p><img src="img/vscodeinstall/dotnet-path.png" alt="" /></p>
+<ul>
+<li>Lalu tekan OK → OK → OK</li>
+</ul>
+<h3 id="menjalankan-dotnet-cli"><a class="header" href="#menjalankan-dotnet-cli">Menjalankan Dotnet CLI</a></h3>
+<ul>
+<li>Buka 'Run' dengan menekan tombol Windows+R di keyboard</li>
+<li>Ketikkan <code>powershell</code> lalu tekan Enter</li>
+<li>Pada jendela powershell, ketikkan <code>dotnet --info</code> lalu Enter lagi, setelah itu cari pada bagian '.NET SDK Installed', jika sudah ada maka maka instalasi berhasil</li>
+</ul>
+<h2 id="membuat-proyek-menggunakan-dotnet-cli"><a class="header" href="#membuat-proyek-menggunakan-dotnet-cli">Membuat Proyek Menggunakan Dotnet CLI</a></h2>
+<ul>
+<li>Buat folder yang digunakan untuk menyimpan proyek, misal <code>D:\projects</code></li>
+<li>Buka powershell, seperti sebelumnya</li>
+<li>Masuk ke folder proyek menggunakan perintah <code>cd</code>, misal <code>cd D:\Projects</code> lalu tekan Enter</li>
+<li>Buat folder dengan nama proyek menggunakan perintah <code>mkdir</code>, misal jika ingin membuat folder bernama <code>ProyekBaru</code> berarti perintahnya: <code>mkdir ProyekBaru</code>, lalu tekan enter</li>
+<li>Masuk ke folder yang baru saja dibuat menggunakan <code>cd</code> lagi. Jika nama foldernya adalah <code>ProyekBaru</code> berarti perintahnya adalah <code>cd ProyekBaru</code></li>
+<li>Setelah berada pada folder tujuan, ketikkan <code>dotnet new console</code></li>
+<li>Setelah perintah selesai dijalankan, ketikkan <code>code .</code> di powershell lalu Enter</li>
+</ul>
+<h2 id="menginstall-ekstensi-c-pada-vs-code"><a class="header" href="#menginstall-ekstensi-c-pada-vs-code">Menginstall Ekstensi C# pada VS Code</a></h2>
+<ul>
+<li>Buka menu ekstensi, search 'C#' lalu install ekstensinya, seperti dibawah ini</li>
+</ul>
+<p><img src="img/vscodeinstall/extension-install.png" alt="" /></p>
+<ul>
+<li>Tunggu sampai proses instalasi selesai dan restart VS Code jika diminta</li>
+</ul>
+<h2 id="membuka-file-programcs"><a class="header" href="#membuka-file-programcs">Membuka File Program.cs</a></h2>
+<ul>
+<li>Buka menu 'explorer' di bagian kiri, lalu klik dua kali file 'Program.cs'</li>
+</ul>
+<p><img src="img/vscodeinstall/program-cs.png" alt="" /></p>
+<ul>
+<li>File akan ditampilkan dan kalian bisa mengeditnya</li>
+</ul>
+<h2 id="menjalankan-program-dengan-dotnet-cli"><a class="header" href="#menjalankan-program-dengan-dotnet-cli">Menjalankan Program dengan Dotnet CLI</a></h2>
+<ul>
+<li>Buka powershell baru, atau gunakan yang sebelumnya</li>
+<li>Masuk ke folder proyek, jika sama seperti saya tadi berarti <code>D:\projects\ProyekBaru</code>, maka perintahnya adalah <code>cd D:\projects\ProyekBaru</code></li>
+<li>Setelah sudah berada dalam folder, ketikkan perintah <code>dotnet run</code> untuk menjalankan program kita</li>
+</ul>
+<h2 id="menggunakan-terminal-dalam-vs-code"><a class="header" href="#menggunakan-terminal-dalam-vs-code">Menggunakan Terminal Dalam VS Code</a></h2>
+<ul>
+<li>Tekan tombol Ctrl+` pada keyboard (symbol ` (backtick) biasanya ada di atas tombol 'Tab')</li>
+<li>Jika berhasil maka akan muncul tampilan dibawah tampilan kode, seperti ini:</li>
+</ul>
+<p><img src="img/vscodeinstall/terminal.png" alt="" /></p>
+<ul>
+<li>Dalam terminal tersebut kalian sudah berada pada folder proyek, jadi jika kalian jalankan perintah <code>dotnet run</code> maka program akan dijalankan</li>
+<li>Cobalah sendiri, ketikkan <code>dotnet run</code> dalam terminal tersebut lalu tekan Enter</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello world!</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="membuat-permainan-tebak-kata"><a class="header" href="#membuat-permainan-tebak-kata">Membuat Permainan Tebak Kata</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="konsep-pemrograman-umum"><a class="header" href="#konsep-pemrograman-umum">Konsep Pemrograman Umum</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variabel"><a class="header" href="#variabel">Variabel</a></h1>
+<h2 id="apa-itu-variabel"><a class="header" href="#apa-itu-variabel">Apa itu Variabel?</a></h2>
+<p>Variabel adalah suatu wadah untuk menyimpan suatu informasi/data di dalam memori. Variabel terdiri dari 3 hal, yaitu nama, tipe, dan isi dari variabel itu sendiri.</p>
+<h2 id="membuat-variabel"><a class="header" href="#membuat-variabel">Membuat Variabel</a></h2>
+<p>Variabel dapat dibuat dengan cara menuliskan tipe data, diikuti dengan nama variabel. Proses ini sering disebut dengan <strong>Deklarasi Variabel</strong>.</p>
+<pre><code>[tipe data] [nama variabel];
+</code></pre>
+<p>Contoh:</p>
+<pre><code class="language-csharp">string nama;
+int umur;
+float nilai;
+bool sukaKucing;
+</code></pre>
+<h3 id="membuat-banyak-variabel-sekaligus"><a class="header" href="#membuat-banyak-variabel-sekaligus">Membuat Banyak Variabel Sekaligus</a></h3>
+<p>Jika ada banyak variabel dengan tipe data yang sama.</p>
+<pre><code class="language-csharp">int panjang;
+int lebar;
+int tinggi;
+</code></pre>
+<p>Pembuatan variabel dapat disingkat menjadi</p>
+<pre><code class="language-csharp">int panjang, lebar, tinggi;
+</code></pre>
+<h2 id="mengisi-variabel"><a class="header" href="#mengisi-variabel">Mengisi Variabel</a></h2>
+<p>Variabel dapat diisi dengan cara menuliskan nama variabel, diikuti dengan tanda sama dengan <code>(=)</code> dan nilai yang akan diberikan.
+Nilai yang akan digunakan untuk mengisi variabel harus sesuai dengan tipe data dari variabel itu sendiri.</p>
+<pre><code class="language-csharp">[nama variabel] = [nilai];
+</code></pre>
+<p>Contoh:</p>
+<pre><code class="language-csharp">nama = &quot;Fafa&quot;;
+umur = 22;
+nilai = 6.9;
+sukaKucing = true;
+</code></pre>
+<h3 id="mengisi-variabel-pada-saat-deklarasi"><a class="header" href="#mengisi-variabel-pada-saat-deklarasi">Mengisi Variabel pada saat Deklarasi</a></h3>
+<p>Variabel dapat diisi kapan saja, namun terkadang ada suatu keadaan dimana suatu variabel harus diisi tepat setelah variabel itu dideklarasi.</p>
+<pre><code class="language-csharp">string planet;
+planet = &quot;Bumi&quot;;
+</code></pre>
+<p>Pembuatan dan pengisian variabel dapat disingkat menjadi</p>
+<pre><code class="language-csharp">string planet = &quot;Bumi&quot;;
+</code></pre>
+<h3 id="mengisi-banyak-variabel-sekaligus"><a class="header" href="#mengisi-banyak-variabel-sekaligus">Mengisi Banyak Variabel Sekaligus</a></h3>
+<p>Jika ada banyak variabel yang diisi dengan nilai yang sama.</p>
+<pre><code class="language-csharp">panjang = 10;
+lebar = 10;
+tinggi = 10;
+</code></pre>
+<p>Pengisian variabel dapat disingkat menjadi</p>
+<pre><code class="language-csharp">panjang = lebar = tinggi = 10;
+</code></pre>
+<h2 id="mengakses-isi-dari-variabel"><a class="header" href="#mengakses-isi-dari-variabel">Mengakses Isi dari Variabel</a></h2>
+<p>Nilai dari variabel dapat digunakan untuk berbagai hal tergantung keadaan dalam program itu sendiri.</p>
+<h3 id="menampilan-isi-dari-variabel-ke-console"><a class="header" href="#menampilan-isi-dari-variabel-ke-console">Menampilan Isi dari Variabel ke Console</a></h3>
+<pre><code class="language-csharp">string nama = &quot;Fafa&quot;;
+Console.WriteLine(nama);
+</code></pre>
+<p>Hasilnya</p>
+<pre><code>Fafa
+</code></pre>
+<h3 id="mengisi-variabel-menggunakan-variabel-lainnya"><a class="header" href="#mengisi-variabel-menggunakan-variabel-lainnya">Mengisi Variabel menggunakan Variabel Lainnya</a></h3>
+<pre><code class="language-csharp">string nama = &quot;Fafa&quot;;
+string nama2 = nama;
+Console.WriteLine(nama);
+Console.WriteLine(nama2);
+</code></pre>
+<p>Hasilnya</p>
+<pre><code>Fafa
+Fafa
+</code></pre>
+<h3 id="melakukan-operasi-yang-melibatkan-variabel"><a class="header" href="#melakukan-operasi-yang-melibatkan-variabel">Melakukan Operasi yang Melibatkan Variabel</a></h3>
+<pre><code class="language-csharp">int panjang = 10;
+int lebar = 5;
+int luas = panjang * lebar;
+Console.WriteLine(luas);
+</code></pre>
+<p>Hasilnya</p>
+<pre><code>50
+</code></pre>
+<h2 id="konstan"><a class="header" href="#konstan">Konstan</a></h2>
+<p>Secara default nilai dari suatu variabel dapat diubah terus menerus, namun terkadang ada suatu keadaan dimana nilai dari suatu variabel itu tidak boleh diubah, misalnya variabel untuk menyimpan π.
+Hal tersebut dapat dilakukan dengan cara menambahkan kata <code>const</code> pada saat pembuatan dan pengisian variabel.</p>
+<pre><code class="language-csharp">const [tipe data] [nama variabel] = [nilai];
+</code></pre>
+<p>Contoh:</p>
+<pre><code class="language-csharp">const double pi = 3.14;
+pi = 3; // Error
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tipe-data"><a class="header" href="#tipe-data">Tipe data</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function"><a class="header" href="#function">Function</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comment"><a class="header" href="#comment">Comment</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control Flow</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
